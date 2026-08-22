@@ -1,0 +1,30 @@
+import { getLatestMarkup } from './feed';
+
+export const revalidate = 900;
+
+const pageMarkup = `
+  <header class="site-header">
+    <a class="brand brand-logo" href="#top" aria-label="Ruthy Fun Mandarin 首頁"><img src="/assets/ruthy-logo-wide.jpeg" alt="Ruthy Fun Mandarin" width="2048" height="1365"></a>
+    <button class="menu-button" aria-expanded="false" aria-controls="main-nav">選單</button>
+    <nav id="main-nav" aria-label="主要選單"><a href="#learn">學習方式</a><a href="#podcast">Podcast</a><a href="#youtube">YouTube</a><a href="#about">關於 Ruthy</a><a class="nav-cta" href="#contact">開始學中文</a></nav>
+  </header>
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy reveal"><p class="eyebrow"><span>你好！Nǐ hǎo!</span> 歡迎來到 Ruthy Fun Mandarin</p><h1>中文不只在課本裡，<br><em>也在每一天的生活裡。</em></h1><p class="hero-lead">用真實對話、台灣文化和有趣故事，陪你自然開口，學會真正用得到的華語。</p><div class="hero-actions"><a class="button button-primary" href="#podcast">開始免費學習 <span aria-hidden="true">→</span></a><a class="button button-quiet" href="#about">認識 Ruthy</a></div><div class="hero-proof" aria-label="特色"><span>🎧 隨時都能學</span><span>💬 實用生活中文</span><span>🇹🇼 認識台灣文化</span></div></div>
+      <div class="hero-art logo-showcase reveal"><img class="brand-hero-image cover-hero-image" src="/assets/ruthy-cover.png" alt="Learn Mandarin with Ruthy Fun 華語 Podcast 封面" width="1672" height="941"></div>
+    </section>
+    <section id="learn" class="learning section-shell"><div class="section-heading reveal"><p class="eyebrow">LEARN YOUR WAY</p><h2>找到適合你的學習節奏</h2><p>從短短一集 Podcast，到專屬的一對一課程，每一步都能累積成真正的表達力。</p></div><div class="feature-grid"><article class="feature-card feature-lilac reveal"><span class="feature-icon">🎧</span><p class="card-number">01</p><h3>Podcast 聽華語</h3><p>通勤、散步都能聽。用故事和生活情境練習聽力，帶走自然又實用的說法。</p><a href="#podcast">收聽最新一集 →</a></article><article class="feature-card feature-yellow reveal"><span class="feature-icon">▶</span><p class="card-number">02</p><h3>YouTube 看中文</h3><p>透過畫面、字幕與短影片，把單字和情境連在一起，記得更快、更久。</p><a href="#youtube">前往影片專區 →</a></article><article class="feature-card feature-mint reveal"><span class="feature-icon">✎</span><p class="card-number">03</p><h3>一對一專屬課程</h3><p>依照你的程度、興趣和目標規劃內容。課後筆記只分享給該名學生。</p><a href="#contact">詢問上課方式 →</a></article></div></section>
+    <section id="podcast" class="content-section podcast-section"><div class="section-shell split-heading reveal"><div><p class="eyebrow">LISTEN & LEARN</p><h2>最新 Podcast</h2></div><p>戴上耳機，讓中文自然走進你的生活。<br><span>Put on your headphones and let Mandarin become part of your day.</span></p></div><div class="section-shell content-grid" id="podcast-list" aria-live="polite"></div><div class="section-shell section-action"><a class="button button-dark" href="https://podcasts.apple.com/tw/podcast/ruthy-fun%E8%8F%AF%E8%AA%9E/id1889124980" target="_blank" rel="noopener">Apple Podcasts ↗</a><a class="button button-primary" href="https://open.spotify.com/show/6Rpce3YGQV7o61OqdkCJcv" target="_blank" rel="noopener">Spotify ↗</a></div></section>
+    <section id="youtube" class="content-section video-section"><div class="section-shell split-heading reveal"><div><p class="eyebrow">WATCH & PRACTICE</p><h2>YouTube 精選</h2></div><p>看得懂、說得出來，讓每支短片都成為一次小小的成功。</p></div><div class="section-shell video-grid" id="video-list" aria-live="polite"></div><div class="section-shell section-action"><a class="button button-primary" href="https://www.youtube.com/@Ruthyfunmandarin" target="_blank" rel="noopener">前往 YouTube 頻道 ↗</a></div></section>
+    <section id="about" class="about section-shell"><div class="about-art reveal"><div class="about-photo"><img src="/assets/ruthy-logo-round.png" alt="Ruthy Fun Mandarin 圓形 Logo" width="1254" height="1254" loading="lazy"></div><p>用好奇心學語言<br>用中文認識世界</p></div><div class="about-copy reveal"><p class="eyebrow">HELLO, I'M RUTHY</p><h2>嗨，我是 Ruthy！</h2><p class="about-lead">我是一位喜歡創意、文化與互動學習的華語老師。</p><p>我相信語言不是要背下來的答案，而是連結人與生活的工具。在這裡，我會把真實的台灣華語、文化故事和生活會話，變成輕鬆好懂的學習內容。</p><blockquote>「希望你每一次開口說中文，都比上一次更有自信。」</blockquote><a class="text-link" href="https://www.instagram.com/ruthyjhang/" target="_blank" rel="noopener">在 Instagram 找到我 @ruthyjhang ↗</a></div></section>
+    <section id="contact" class="cta-section"><div class="section-shell cta-inner reveal"><p class="eyebrow">READY TO START?</p><h2>一起把中文變成<br>你生活的一部分。</h2><p>想試聽課程、合作，或告訴我你想學的主題？歡迎透過 Facebook 或 Instagram 傳訊息給我。</p><div class="contact-actions"><a class="button button-light" href="https://www.facebook.com/share/1WvrhT9rrU/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook ↗</a><a class="button button-light" href="https://www.instagram.com/ruthyjhang/" target="_blank" rel="noopener">Instagram ↗</a></div></div></section>
+  </main>
+  <footer><div class="section-shell footer-inner"><a class="brand footer-logo" href="#top" aria-label="Ruthy Fun Mandarin 首頁"><img src="/assets/ruthy-logo-wide.jpeg" alt="Ruthy Fun Mandarin" width="2048" height="1365"></a><p>一起快樂學中文 ✦ Learn Mandarin with joy.</p><p class="copyright">© <span id="year"></span> Ruthy Fun Mandarin</p></div></footer>`;
+
+export default async function Home() {
+  const latest = await getLatestMarkup();
+  const markup = pageMarkup
+    .replace('<div class="section-shell content-grid" id="podcast-list" aria-live="polite"></div>', `<div class="section-shell content-grid" id="podcast-list" aria-live="polite">${latest.podcasts}</div>`)
+    .replace('<div class="section-shell video-grid" id="video-list" aria-live="polite"></div>', `<div class="section-shell video-grid" id="video-list" aria-live="polite">${latest.videos}</div>`);
+  return <div dangerouslySetInnerHTML={{ __html: markup }} />;
+}

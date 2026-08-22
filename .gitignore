@@ -1,0 +1,13 @@
+# dependencies / builds
+node_modules/
+dist/
+.next/
+.wrangler/
+.pnpm-store/
+.DS_Store
+Thumbs.db
+
+# private student data must never be committed
+private/student-notes/
+.env
+.env.*
